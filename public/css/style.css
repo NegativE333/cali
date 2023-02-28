@@ -1,0 +1,443 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:700");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* by default include the background of the option for the home navigation */
+body {
+  background: #80afbc;
+  color: #010101;
+  /* center in the viewport */
+  /* min-height: 100vh;
+  display: grid;
+  place-items: center; */
+  font-family: "Open Sans", sans-serif;
+  /* transition for the change in bg color */
+  transition: background 0.2s ease-out;
+}
+
+/* display the anchor link side by side  */
+nav {
+  display: flex;
+  background: transparent;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 4.3rem;
+  /* considerable whitespace surrounding the navigation's items */
+  /* padding: 2rem 3.15rem; */
+  border-radius: 0 0 30px 30px;
+  /* justify-content: space-evenly; */
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* remove default style and slightly separate the anchor links from one another */
+a {
+  color: inherit;
+  text-decoration: none;
+  /* margin: 0 0.2rem; */
+  /* display the svg icon and span elements side by side, vertically aligned */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* include padding for the background applied on the active item */
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+  background: var(--hover-bg);
+  color: var(--hover-c);
+  /* position relative for the pseudo element */
+  /* position: relative; */
+  /* custom properties for the colors picked up by the elements when clicked (and updated for each link in the script) */
+  --hover-bg: #c6bfda20;
+  --hover-c: #fff;
+}
+
+/* include considerable negative margin to have the svg icon overlapping with the span element */
+a svg {
+  /* margin-right: -2.5rem; */
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  /* transition for the change in margin */
+  transition: margin 0.2s ease-out;
+}
+
+/* by default hide the span element */
+a p {
+  opacity: 1;
+  /* visibility: hidden; */
+  font-size: 0.9rem;
+  /* margin-left: 0.3rem; */
+  text-align: center;
+}
+/* include with a pseudo element relative to the anchor link a circle, with a fixed with and height */
+a:before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  /* positioned to the left of the anchor link and scaled to 0 */
+  transform: translate(0%, -50%) scale(0);
+  visibility: visible;
+  opacity: 1;
+}
+/* when active */
+/* specify the colors dictated by the custom properties */
+a.active {
+  background: var(--hover-bg);
+  color: var(--hover-c);
+}
+/* using the color specified by the then updated custom property show the circle of the pseudo element increasing its size and highlighting it momentarily */
+a.active:before {
+  background: var(--hover-c);
+  /* opacity: 1; */
+  visibility: hidden;
+  transform: translate(0%, -50%) scale(2);
+  /* transition only when the class is applied */
+  transition: all 0.4s ease-out;
+}
+/* remove the margin applied to the svg to make it overlay atop the anchor link */
+a.active svg {
+  margin-right: 0;
+}
+/* show the span element */
+a.active p {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.2s ease-out;
+}
+
+/* on smaller viewports show the navigation bar on the side, attached to the left of the screen */
+@media (max-width: 500px) {
+  nav {
+    flex-direction: row;
+    justify-self: center;
+    justify-content: space-around;
+    border-radius: 30px 30px 0px 0px;
+    padding: 0.2rem 1.15rem 0.2rem 0.75rem;
+  }
+  /* change the margin separating the anchor link elements now dividing the elements vertically */
+  /* nav a {
+    margin: 0.5rem 0;
+  } */
+  /* remove the negative margin from the svg elements, as the width is to be taken in full */
+  nav svg {
+    margin: 0;
+  }
+}
+
+.titleNav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-image: linear-gradient( 95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1) 64% ); */
+    width: 100%;
+    position: fixed;
+    height: 3.3rem;
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1);
+    /* border-radius: 0px 0px 30px 30px; */
+}
+
+.titleNav{
+  background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Marcellus SC', serif;
+  /* animation: lights 5s 750ms linear infinite; */
+  /* font-family: "Roboto", sans-serif; */
+}
+
+.home{
+    /* height: 5rem; */
+    display: flex;
+    flex-direction: column;
+    background-image: url("/img/wall8.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    /* background-color: white; */
+}
+
+.homeUpper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4.5rem;
+    width: 100%;
+    position: fixed;
+    height: 2rem;
+    color: #fff;
+    font-family: 'Baloo Tamma 2', cursive;
+    /* background-color: wheat; */
+}
+
+.thirty{
+    margin-top: 8rem;
+    display: flex;
+    flex-direction: column;
+    height: 33.4rem;
+    /* background-color: wheat; */
+    overflow-y: scroll;
+    color: #fff;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family: 'Martel Sans', sans-serif;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* text-align: center; */
+    /* position: relative; */
+}
+
+.fixed{
+    position: fixed;
+}
+
+.table{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+th, td {
+    padding: 20px;
+    text-align: left;
+    border-bottom: 0.5px solid #fff;
+}
+
+td{
+    /* text-align: left; */
+    height: 20px;
+    /* border-bottom: 0.5px solid #3c3a3a; */
+}
+
+.spending{
+    width: 3%;
+    text-align: right;
+}
+
+.title{
+    text-align: center;
+    width: 47%;
+}
+
+.date{
+    text-align: left;
+    width: 53%;
+}
+
+.add, .addMoney, .allExp{
+  padding-top: 4rem;
+  background-image: url("/img/wall8.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+.add, .addMoney h3{
+  text-align: center;
+  color: #fff;
+  font-family: 'Martel Sans', sans-serif;
+}
+
+section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  min-height: 40vh;
+  width: 100%;
+}
+
+.form-box{
+  position: relative;
+  width: 325px;
+  height: 400px;
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Laila', sans-serif;
+}
+
+.inputbox{
+  position: relative;
+  margin: 30px 0;
+  width: 250px;
+  border-bottom: 2px solid #fff;
+}
+
+.inputbox label{
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1em;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+input:focus ~ label,
+input:valid ~ label{
+  top: -5px;
+}
+
+.inputbox input{
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  padding: 0 35px 0 5px;
+  color: #fff;
+}
+
+.inputbox ion-icon{
+  position: absolute;
+  right: 8px;
+  color: #fff;
+  font-size: 1.2em;
+  top: 20px;
+}
+
+button{
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  background: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.profile{
+  padding-top: 4rem;
+  background-image: url("/img/wall8.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.userInfo{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  margin: 2rem 1rem 2rem 1rem;
+  padding: 0.5rem;
+  height: 4rem;
+  color: #fff;
+  font-family: 'Baloo Tamma 2', cursive;
+  font-size: 1.1em;
+  /* background-color: red; */
+}
+
+.options{
+  color: #fff;
+  margin: 2rem 1rem 2rem 1rem;
+  padding: 0.5rem;
+}
+
+.options h3{
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.options p{
+  padding: 0.5rem 0 0.5rem 0;
+  display: inline;
+}
+
+.all{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    height: 34.4rem;
+    /* background-color: wheat; */
+    overflow-y: scroll;
+    color: #fff;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family: 'Martel Sans', sans-serif;
+}
+
+.allExp p{
+  text-align: center;
+  font-size: 1.2em;
+  color: #fff;
+  font-family: 'Baloo Tamma 2', cursive;
+}
+
+.com{
+  font-family: 'Martel Sans', sans-serif;
+  font-size: 1.1em;
+  text-align: center;
+  margin-top: 5rem;
+  color: #ddd;
+}
+
+.com p{
+  /* margin: auto; */
+  font-size: 1rem;
+  font-weight: 300;
+  animation: lights 5s 750ms linear infinite;
+}
+
+
+@keyframes lights {
+  0% {
+    color: hsl(230, 40%, 80%);
+    text-shadow:
+      0 0 1em hsla(320, 100%, 50%, 0.2),
+      0 0 0.125em hsla(320, 100%, 60%, 0.3),
+      -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+      1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+  }
+  
+  30% { 
+    color: hsl(230, 80%, 90%);
+    text-shadow:
+      0 0 1em hsla(320, 100%, 50%, 0.5),
+      0 0 0.125em hsla(320, 100%, 60%, 0.5),
+      -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+      0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+  }
+  
+  40% { 
+    color: hsl(230, 100%, 95%);
+    text-shadow:
+      0 0 1em hsla(320, 100%, 50%, 0.5),
+      0 0 0.125em hsla(320, 100%, 90%, 0.5),
+      -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
+      0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
+  }
+  
+  70% {
+    color: hsl(230, 80%, 90%);
+    text-shadow:
+      0 0 1em hsla(320, 100%, 50%, 0.5),
+      0 0 0.125em hsla(320, 100%, 60%, 0.5),
+      0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+      -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+  }
+  
+  100% {
+    color: hsl(230, 40%, 80%);
+    text-shadow:
+      0 0 1em hsla(320, 100%, 50%, 0.2),
+      0 0 0.125em hsla(320, 100%, 60%, 0.3),
+      1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+      -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+  }
+  
+}

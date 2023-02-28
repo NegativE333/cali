@@ -1,0 +1,40 @@
+<%- include("header") %>
+
+<div class="allExp">
+    <p>All Expanses</p>
+    <p>In total you spended: <b><%= allSpend[0].totalSpend %> ₹</b></p>
+    <div class="all">
+        <table>
+            <tr>
+                <th class="date">Date</th>
+                <th class="title">Title</th>
+                <th class="spending">Spending</th>
+            </tr>
+            <% 
+        if(thirty.length>0){
+        %>
+        <% for(var i = 0; i<thirty.length; i++){ %>
+            <tr>
+                <td class="date"><%= thirty[i].day %></td>
+                <td class="title"><%= thirty[i].title %></td>
+                <td class="spending"><%= thirty[i].spend %> ₹</td>
+            </tr>
+            <% if(i==29){
+                break;
+            }%>
+        <%
+            }
+        }
+        else{
+        %>
+            <h1>No data to show</h1>
+        <%
+        }
+        %>
+    
+        </table>
+    </div>
+
+</div>
+
+<%- include("footer") %>

@@ -1,0 +1,30 @@
+<%- include("header") %>
+
+<div class="profile">
+    <div class="userInfo">
+        <p>UserName: <%= udata[0].user_name %></p>
+        <p>Email ID: <%= udata[0].user_email %></p>
+    </div>
+    <div class="options">
+        <h3>Options</h3>
+        <a href="addMoney">
+        <ion-icon name="add-outline"></ion-icon>
+        <p>Add Money</p>
+        </a>
+        <br>
+        <a href="all">
+        <ion-icon name="eye-outline"></ion-icon>
+        <p>View all Expanses</p>
+        </a>
+        <br>
+        <a>
+        <ion-icon name="log-out-outline"></ion-icon>
+        <p>Log Out</p>
+        </a>
+    </div>
+    <div class="com">
+        <p>Developed by <b>NegativE3</b></p>
+    </div>
+</div>
+
+<%- include("footer") %>

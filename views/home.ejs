@@ -1,0 +1,43 @@
+<%- include("header") %>
+<div class="home">
+
+<div class="homeUpper">
+    <p>Available Money : <b><%= avail[0].available %> ₹</b></p>
+    <br>
+    <p>Your last 30 Expense</p>
+</div>
+
+<div class="thirty">
+    <table>
+        <tr>
+            <th class="date">Date</th>
+            <th class="title">Title</th>
+            <th class="spending">Spending</th>
+        </tr>
+        <% 
+        if(thirty.length>0){
+        %>
+        <% for(var i = 0; i<thirty.length; i++){ %>
+            <tr>
+                <td class="date"><%= thirty[i].day %></td>
+                <td class="title"><%= thirty[i].title %></td>
+                <td class="spending"><%= thirty[i].spend %> ₹</td>
+            </tr>
+            <% if(i==29){
+                break;
+            }%>
+        <%
+            }
+        }
+        else{
+        %>
+            <h1>No data to show</h1>
+        <%
+        }
+        %>
+    </table>
+</div>
+
+</div>
+
+<%- include("footer") %>

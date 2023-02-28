@@ -1,0 +1,21 @@
+<%- include("header") %>
+
+<div class="addMoney">
+    <h3>Add Money</h3>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form action="/addMoney" method="POST">
+                    <div class="inputbox">
+                        <ion-icon name="cash-outline"></ion-icon>
+                        <input type="number" id="money" name="money" required>
+                        <label for="">Enter Amount</label>
+                    </div>
+                    <button type="submit">Add</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+
+<%- include("footer") %>

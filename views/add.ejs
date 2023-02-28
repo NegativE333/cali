@@ -1,0 +1,31 @@
+<%- include("header") %>
+
+<div class="add">
+    <h3>Add your Expense of the day.</h3>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form action="/add" method="POST">
+                    <div class="inputbox">
+                        <ion-icon name="calendar-outline"></ion-icon>
+                        <input type="text" id="day" name="day" required>
+                        <label for="">Date</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="create-outline"></ion-icon>
+                        <input type="text" id="title" name="title" required>
+                        <label for="">Expense title</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="cash-outline"></ion-icon>
+                        <input type="number" id="spend" name="spend" required>
+                        <label for="">How much you spended?</label>
+                    </div>
+                    <button>Add</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+
+<%- include("footer") %>
