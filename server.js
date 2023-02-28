@@ -55,7 +55,7 @@ app.get('/profile', (req, res)=>{
             throw err;
         }
         else{
-            // console.log(data);
+            console.log(data);
             res.render("profile", {udata:data});
         }
     })
